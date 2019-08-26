@@ -65,7 +65,7 @@ class EntryCountService extends Component
         $entryCountRecords = EntryCountRecord::find()
             ->orderBy('count desc')
             ->all();
-
+        
         // get entry ids from records
         $entryIds = [];
 
@@ -77,6 +77,7 @@ class EntryCountService extends Component
         // return entry query
         return Entry::find()
             ->id($entryIds)
+            ->section('blogPost')
             ->fixedOrder(true);
     }
 
